@@ -1,13 +1,29 @@
 <!-- header -->
 <header class="site-header transparent-sidemenu">
   <nav class="navbar navbar-expand-lg transparent-bg static-nav">
-     <div class="container">
-        <a class="navbar-brand" href="index.html">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
         <img src="assets/images/logo-transparent.png" alt="logo">
-        </a>
+      </a>
 
-        <div class="collapse navbar-collapse" id="xenav">
-           <ul class="navbar-nav ms-auto">
+      <div class="collapse navbar-collapse" id="xenav">
+        <div class="searchbar-section">
+          <div class="leftside">
+            <div class="searchbar">
+              <input type="text" class="input" placeholder="Search...">
+              <button class="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+            <div class="login" (click)="goToLogin()">
+              <div class="image">
+                <img src="../../../assets/images/user.png" alt="">
+              </div>
+              <p class="para">Sign In</p>
+            </div>
+          </div>
+        </div>
+        <!-- <ul class="navbar-nav ms-auto">
               <li class="nav-item active">
                  <a class="nav-link pagescroll" href="#home">Home</a>
               </li>
@@ -32,58 +48,58 @@
               <li class="nav-item">
                  <a class="nav-link pagescroll" href="#site-footer">Contact</a>
               </li>
-           </ul>
-        </div>
-     </div>
+           </ul> -->
+      </div>
+    </div>
 
-     <!--side menu open button-->
-     <a href="javascript:void(0)" class="d-lg-inline-block sidemenu_btn" id="sidemenu_toggle">
+    <!--side menu open button-->
+    <!-- <a href="javascript:void(0)" class="d-lg-inline-block sidemenu_btn" id="sidemenu_toggle">
          <span></span> <span></span> <span></span>
-      </a>
+      </a> -->
   </nav>
 
   <!-- side menu -->
   <div class="side-menu">
-     <div class="inner-wrapper">
-        <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
-        <nav class="side-nav">
-           <ul class="navbar-nav w-100">
-              <li class="nav-item active">
-                 <a class="nav-link pagescroll" href="#home">Home</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link pagescroll" href="#creative">Creative</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link pagescroll" href="#corporate">Corporate</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link pagescroll" href="#social">Social</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link pagescroll" href="#seo">SEO</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link pagescroll" href="#marketing">Marketing</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link pagescroll" href="#agency">agency</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link pagescroll" href="#site-footer">Contact</a>
-              </li>
-           </ul>
-        </nav>
+    <div class="inner-wrapper">
+      <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
+      <nav class="side-nav">
+        <ul class="navbar-nav w-100">
+          <li class="nav-item active">
+            <a class="nav-link pagescroll" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pagescroll" href="#creative">Creative</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pagescroll" href="#corporate">Corporate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pagescroll" href="#social">Social</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pagescroll" href="#seo">SEO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pagescroll" href="#marketing">Marketing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pagescroll" href="#agency">agency</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pagescroll" href="#site-footer">Contact</a>
+          </li>
+        </ul>
+      </nav>
 
-        <div class="side-footer w-100">
-           <ul class="social-icons-simple white top40">
-           <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a> </li>
-           <li><a href="javascript:void(0)"><i class="fa fa-instagram"></i> </a> </li>
-           <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a> </li>
+      <div class="side-footer w-100">
+        <ul class="social-icons-simple white top40">
+          <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a> </li>
+          <li><a href="javascript:void(0)"><i class="fa fa-instagram"></i> </a> </li>
+          <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a> </li>
         </ul>
         <p class="whitecolor">&copy; 2018 XeOne. Made With Love by themesindustry</p>
-        </div>
-     </div>
+      </div>
+    </div>
   </div>
   <a id="close_side_menu" href="javascript:void(0);"></a>
   <!-- End side menu -->

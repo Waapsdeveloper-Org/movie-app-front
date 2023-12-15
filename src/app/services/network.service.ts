@@ -13,14 +13,13 @@ export class NetworkService {
     public api: ApiService,
   ) { }
 
+  login(data: { email: string; password: string; }){
+    return this.httpPostResponse("login", data, null, true)
+  }
+
   getFilms() {
     return this.httpGetResponse("films", null, true, true);
   }
-
-
-
-
-
   httpPostResponse(
     key: any,
     data: any,
@@ -129,9 +128,7 @@ export class NetworkService {
           if (showError) {
             this.utility.presentFailureToast(err['message']);
           }
-
           reject(null);
-
         }
       );
     });

@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard.component';
-import { DashboardRoutingModule } from './dashboard-routing.module';
+import { signupRoutingModule } from './signup-routing.module';
 import { TopHeaderModule } from 'src/app/components/top-header/top-header.module';
+import { SignupComponent } from './signup.component';
 
 
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-  ],
+  declarations: [SignupComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
+    signupRoutingModule,
     TopHeaderModule
-  ]
+  ],
+  exports:[SignupComponent]
 })
-export class DashboardModule { }
+export class SignupModule { }
