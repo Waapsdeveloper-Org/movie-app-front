@@ -7,6 +7,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FilmCommentsModule } from './film-comments/film-comments.module';
 import { FilmAddCommentsModule } from './film-add-comments/film-add-comments.module';
+import { StarRatingModule } from './star-rating/star-rating.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FilmAddCommentsModule } from './film-add-comments/film-add-comments.mod
     FormsModule,
     ReactiveFormsModule,
     FilmCommentsModule,
-    FilmAddCommentsModule
+    FilmAddCommentsModule,
+    StarRatingModule
   ],
   exports: [
     MovieDetailComponent

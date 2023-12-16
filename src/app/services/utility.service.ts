@@ -21,6 +21,7 @@ export class UtilityService {
   }
 
   presentSuccessToast(msg: string) {
+    return this.toastr.success(msg);
     // return this.alerts.presentSuccessToast(msg);
   }
 

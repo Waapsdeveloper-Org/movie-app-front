@@ -14,28 +14,28 @@ export class NetworkService {
   ) { }
 
   login(data: { email: string; password: string; }){
-    return this.httpPostResponse("auth/login", data, null, true)
+    return this.httpPostResponse("auth/login", data, null, false, false)
   }
 
   register(data: { name: string; email: string; password: string; }){
-    return this.httpPostResponse("auth/register", data, null, true)
+    return this.httpPostResponse("auth/register", data, null, false, false)
   }
 
   getFilms(search = "") {
     let url = search ? "films?search=" + search : "films";
-    return this.httpGetResponse(url, null, true, true);
+    return this.httpGetResponse(url, null, true, false);
   }
 
   getFilm(id: any) {
-    return this.httpGetResponse("films", id, true, true);
+    return this.httpGetResponse("films", id, true, false);
   }
 
   getFilmComments(id: any) {
-    return this.httpGetResponse("films/" + id + "/comments", null, true, true);
+    return this.httpGetResponse("films/" + id + "/comments", null, true, false);
   }
 
-  postFilmComments(data: { filmId: number; comment: string; rating: number; }) {
-    return this.httpPostResponse("films/comments", data, null, true)
+  postFilmComments(data: { film_id: number; comment: string; rating: number; }) {
+    return this.httpPostResponse("films/comments", data, null, false, true)
   }
 
   httpPostResponse(
@@ -119,8 +119,9 @@ export class NetworkService {
           this.utility.hideLoader();
 
           // if (data["status"] != 200) {
-          //   if (showError) {
-          //   }
+            if (showError) {
+              this.utility.presentSuccessToast(data['message']);
+            }
           //   console.log("returnError", returnError);
 
           //   reject(null);

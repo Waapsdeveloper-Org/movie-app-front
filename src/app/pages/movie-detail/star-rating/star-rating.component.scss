@@ -1,0 +1,10 @@
+.stars-box-outer
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  .star-box-item{
+      font-size: 45px;
+      color: #643094;
+  }
+}

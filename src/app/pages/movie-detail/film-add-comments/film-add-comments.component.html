@@ -9,7 +9,7 @@
           <textarea class="form-control" [(ngModel)]="comment" [ngModelOptions]="{'standalone': true}" placeholder="Message"></textarea>
         </div>
       </div>
-
+      <app-star-rating class="mb-5" [rating]="rating" (ratingChange)="ratingChange($event)" ></app-star-rating>
       <div class="col-sm-12">
         <button type="submit" class="button btnprimary" (click)="formSubmit()">submit request</button>
       </div>

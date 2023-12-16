@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EventsService } from 'src/app/services/events.service';
 import { FilmsService } from 'src/app/services/films.service';
 import { NavService } from 'src/app/services/nav.service';
 
@@ -12,7 +13,8 @@ export class MovieDetailComponent implements OnInit {
 
   item: any;
   user: any;
-  constructor(private nav: NavService, private filmService: FilmsService) {
+  constructor(private nav: NavService, private filmService: FilmsService, ) {
+
 
   }
 

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { EventsService } from 'src/app/services/events.service';
 import { FilmsService } from 'src/app/services/films.service';
 import { UtilityService } from 'src/app/services/utility.service';
 
@@ -12,9 +13,13 @@ export class FilmAddCommentsComponent {
     @Input() filmId: number = -1;
     comment: string = "";
     rating: number = 0;
-    constructor(private utility: UtilityService, private filmService: FilmsService) { }
+    constructor(private utility: UtilityService, private filmService: FilmsService, private events: EventsService) { }
 
     ngOnInit() {
+    }
+
+    ratingChange($event: number){
+      this.rating = $event;
     }
 
     formSubmit() {
@@ -40,12 +45,16 @@ export class FilmAddCommentsComponent {
     async addComment() {
 
       let data = {
-        filmId: this.filmId,
+        film_id: this.filmId,
         comment: this.comment,
         rating: this.rating
       };
 
-      const res = await this.filmService.postFilmComments(data)
+      const res = await this.filmService.postFilmComments(data) as any;
+      console.log(res);
+      this.rating = 0;
+      this.comment = "";
+      this.events.publish('comment:added', res);
 
 
     }

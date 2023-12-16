@@ -50,12 +50,13 @@ export class FilmsService {
 
   }
 
-  postFilmComments(data: { filmId: number; comment: string; rating: number; }) {
+  postFilmComments(data: { film_id: number; comment: string; rating: number; }) {
     return new Promise(async (resolve) => {
 
       const res = await this.network.postFilmComments(data);
       console.log(res)
       if(res){
+        
         resolve(res);
       } else {
         resolve(null);

@@ -7,9 +7,12 @@ import { PagesModule } from './pages/pages.module';
 import { LoaderModule } from './components/loader/loader.module';
 import { NetworkService } from './services/network.service';
 import { UtilityService } from './services/utility.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { InterceptorService } from './services/interceptor.service';
+import { EventsService } from './services/events.service';
+import { NgxPubSubService } from '@pscoped/ngx-pub-sub';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,14 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+
   ],
   providers: [
     NetworkService,
-    UtilityService
+    UtilityService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    NgxPubSubService,
+    EventsService
   ],
   bootstrap: [AppComponent]
 })

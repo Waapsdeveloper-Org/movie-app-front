@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FilmAddCommentsComponent } from './film-add-comments.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StarRatingModule } from '../star-rating/star-rating.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StarRatingModule
   ],
   exports: [
     FilmAddCommentsComponent
