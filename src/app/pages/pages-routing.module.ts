@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
+    path: 'movie-detail',
+    loadChildren: () => import('./movie-detail/movie-detail.module').then(m => m.MovieDetailModule)
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },

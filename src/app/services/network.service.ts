@@ -14,12 +14,22 @@ export class NetworkService {
   ) { }
 
   login(data: { email: string; password: string; }){
-    return this.httpPostResponse("login", data, null, true)
+    return this.httpPostResponse("auth/login", data, null, true)
   }
 
-  getFilms() {
-    return this.httpGetResponse("films", null, true, true);
+  register(data: { name: string; email: string; password: string; }){
+    return this.httpPostResponse("auth/register", data, null, true)
   }
+
+  getFilms(search = "") {
+    let url = search ? "films?search=" + search : "films";
+    return this.httpGetResponse(url, null, true, true);
+  }
+
+  getFilm(id: any) {
+    return this.httpGetResponse("films", id, true, true);
+  }
+
   httpPostResponse(
     key: any,
     data: any,
@@ -122,11 +132,11 @@ export class NetworkService {
 
           console.log("API Error", err);
 
-          let error = err;
+          let error = err.error;
           this.utility.hideLoader();
 
           if (showError) {
-            this.utility.presentFailureToast(err['message']);
+            this.utility.presentFailureToast(error['message']);
           }
           reject(null);
         }

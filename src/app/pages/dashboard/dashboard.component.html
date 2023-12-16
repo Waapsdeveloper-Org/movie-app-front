@@ -1,37 +1,43 @@
 
-<app-top-header></app-top-header>
+<!-- <app-top-header></app-top-header> -->
+<div class="search-div">
+
+  <div class="search-box-outer">
+
+    <input type="text" class="input-inner" (keydown.enter)="search()" [(ngModel)]="searchText" />
+
+    <div class="search-box-btn" (click)="search()">
+      <div class="top-badge">{{list.length}}</div>
+      <i class="fa fa-search"></i>
+
+    </div>
+
+
+  </div>
+
+</div>
 <!--Single portfolio items-->
-<section class="single-items center-block center-block item-one parallaxie full-screen" id="home">
+<section class="single-items center-block center-block item-one parallaxie full-screen" id="home" [hidden]="searchText !== ''">
   <div class="container">
      <div class="row">
         <div class="col-md-12 col-sm-12">
            <div class="item-titles whitecolor text-center">
               <h2 class="font-xlight wow fadeInUp" data-wow-delay="300ms">
-                 <a href="gallery-detail.html">Strategy <span>Solutions</span>  </a>
+                 <a href="gallery-detail.html">Movies <span>Search Solutions</span>  </a>
               </h2>
-              <p class="top25 bottom25 wow fadeInUp" data-wow-delay="350ms">graphics, branding, development</p>
-              <a class="button btnwhite btn-gradient-hvr" href="gallery-detail.html wow fadeInUp" data-wow-delay="400ms">View More</a>
+              <p class="top25 bottom25 wow fadeInUp" data-wow-delay="350ms">This application is a demonstration of Elastic search with movies </p>
+              <!-- <a class="button btnwhite btn-gradient-hvr" href="#creative" data-wow-delay="400ms">View More</a> -->
            </div>
         </div>
      </div>
   </div>
 </section>
 
-<div class="widget heading_space">
-  <h4 class="text-capitalize darkcolor bottom20">search</h4>
-  <form class="widget_search">
-     <div class="input-group">
-        <input type="search" class="form-control" placeholder="search..." required>
-        <button type="submit" class="input-group-addon"><i class="fa fa-search"></i> </button>
-     </div>
-  </form>
-</div>
 
-
-<section class="single-items center-block item-two parallaxie full-screen" id="creative" *ngFor="let item of list">
+<section class="single-items center-block item-two parallaxie full-screen" id="creative" *ngFor="let item of list" [style.backgroundImage]="'url('+ item['photo'] +')'" (click)="openDetails(item)" >
   <div class="container">
      <div class="row">
-        <div class="col-md-5 col-sm-8">
+        <div class="col-md-5 col-sm-8 gray-bg-trans-text" >
            <div class="item-titles darkcolor">
               <h2 class="font-xlight wow fadeInUp" data-wow-delay="300ms">
                  <a data-fancybox="group-two" href="assets/images/gallery-flat1.jpg"><span [innerHTML]="item['name']"></span></a>
@@ -43,3 +49,6 @@
      </div>
   </div>
 </section>
+
+<app-pinch-user class="pinch-user-c"></app-pinch-user>
+

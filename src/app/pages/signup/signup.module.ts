@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { signupRoutingModule } from './signup-routing.module';
 import { TopHeaderModule } from 'src/app/components/top-header/top-header.module';
 import { SignupComponent } from './signup.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +11,9 @@ import { SignupComponent } from './signup.component';
   imports: [
     CommonModule,
     signupRoutingModule,
-    TopHeaderModule
+    TopHeaderModule,
+    ReactiveFormsModule
+
   ],
   exports:[SignupComponent]
 })

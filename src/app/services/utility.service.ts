@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilityService {
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   showLoader(msg = "Please wait...") {
     // return this.loading.showLoader(msg);
@@ -24,7 +25,7 @@ export class UtilityService {
   }
 
   presentFailureToast(msg: string) {
-    // return this.alerts.presentFailureToast(msg);
+    return this.toastr.error(msg);
   }
 
 }

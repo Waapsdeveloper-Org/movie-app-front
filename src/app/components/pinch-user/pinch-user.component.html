@@ -1,0 +1,6 @@
+<div *ngIf="user">
+  <h2 >Hey ! {{user.name}}</h2>
+  <div class="badge-logout" (click)="logout()">logout</div>
+</div>
+
+<a *ngIf="!user" class="button btnwhite btn-gradient-hvr" href="/pages/login" data-wow-delay="400ms">Login</a>

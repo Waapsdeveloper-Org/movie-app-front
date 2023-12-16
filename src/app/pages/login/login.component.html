@@ -7,17 +7,17 @@
 <!--page Header-->
 <section class="page-header parallaxie padding_top center-block">
   <div class="container">
-     <div class="row">
-        <div class="col-sm-12">
-           <div class="page-titles text-center">
-              <h2 class="whitecolor font-light bottom30">Login</h2>
-              <ul class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Login</li>
-              </ul>
-           </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="page-titles text-center">
+          <h2 class="whitecolor font-light bottom30">Login</h2>
+          <ul class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Login</li>
+          </ul>
         </div>
-     </div>
+      </div>
+    </div>
   </div>
 </section>
 <!--page Header ends-->
@@ -26,61 +26,40 @@
 <!-- Login Register -->
 <section id="our-blog" class="padding text-center">
   <div class="container">
-     <div class="row d-flex justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-10">
-           <div class="bglight logincontainer">
-              <h3 class="darkcolor bottom35">Login </h3>
-                 <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                       <div class="form-group bottom35">
-                          <input class="form-control" (result)="results($event,'email')" [value]="obj.email"  type="email" placeholder="Email:" required>
-                       </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                       <div class="form-group bottom35">
-                          <input class="form-control" type="password" [value]="obj.password" (result)="results($event,'password')" placeholder="Password:" required>
-                       </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                       <div class="form-group bottom35">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div class="bglight logincontainer">
+          <h3 class="darkcolor bottom35">Login</h3>
+          <form [formGroup]="aForm" class="getin_form border-form" id="login" (ngSubmit)="formSubmit()">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form-group bottom35">
+                  <input class="form-control" formControlName="email" type="email" placeholder="Email:" required>
+                  <div class="mt-2" *ngIf="aForm.controls['email'].invalid">Must be an Email Format</div>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div class="form-group bottom35">
+                  <input class="form-control" formControlName="password" type="password" placeholder="Password:"
+                    required>
+                  <div class="mt-2" *ngIf="aForm.controls['password'].invalid">Must be Min 8 Characters</div>
+                </div>
+              </div>
 
-                          <div class="form-check text-start">
-                             <input class="form-check-input" type="checkbox" value="" id="rememberMe">
-                             <label class="form-check-label" for="rememberMe">
-                                   Keep Me Signed In
-                               </label>
-                          </div>
+              <div class="col-sm-12">
+                <button type="submit" class="button btnprimary">Login</button>
+              </div>
 
-                       </div>
-                    </div>
-                    <div class="col-sm-12">
-                       <button type="submit" class="button btnprimary" (click)="logins()" >Login</button>
-                       <p class="top20 log-meta"> Don't have an account? <a  (click)="gotoSignUp()">Sign Up Now</a> </p>
-                    </div>
-                 </div>
-           </div>
+              <div class="mt-2" *ngIf="aForm.invalid && aForm.dirty && !submit">Values must be correct</div>
+
+              <div class="mt-2" *ngIf="aForm.invalid && aForm.dirty && submit">Invalid Credentials</div>
+            </div>
+          </form>
+
+          <p class="top20 log-meta"> Don't have an account? <a href="/pages/signup">Sign Up Now</a> </p>
         </div>
-     </div>
+      </div>
+    </div>
   </div>
 </section>
 <!--Login Ends-->
-
-
-<!--Site Footer Here-->
-<footer id="site-footer" class="padding_half">
-  <div class="container">
-     <div class="row">
-        <div class="col-md-12 col-sm-12 text-center">
-           <ul class="social-icons bottom25">
-              <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a> </li>
-              <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a> </li>
-              <li><a href="javascript:void(0)"><i class="fa fa-google-plus"></i> </a> </li>
-              <li><a href="javascript:void(0)"><i class="fa fa-linkedin"></i> </a> </li>
-              <li><a href="javascript:void(0)"><i class="fa fa-instagram"></i> </a> </li>
-              <li><a href="javascript:void(0)"><i class="fa fa-envelope-o"></i> </a> </li>
-           </ul>
-           <p class="copyrights wow fadeInUp" data-wow-delay="350ms"> &copy; 2019 XeOne. made with love by <a href="http://www.themesindustry.com/" target="_blank">themesindustry</a> </p>
-        </div>
-     </div>
-  </div>
-</footer>
