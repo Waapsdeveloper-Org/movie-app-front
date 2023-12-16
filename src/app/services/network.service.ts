@@ -30,6 +30,14 @@ export class NetworkService {
     return this.httpGetResponse("films", id, true, true);
   }
 
+  getFilmComments(id: any) {
+    return this.httpGetResponse("films/" + id + "/comments", null, true, true);
+  }
+
+  postFilmComments(data: { filmId: number; comment: string; rating: number; }) {
+    return this.httpPostResponse("films/comments", data, null, true)
+  }
+
   httpPostResponse(
     key: any,
     data: any,

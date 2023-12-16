@@ -1,15 +1,60 @@
-<section class="single-items center-block item-two parallaxie full-screen" id="creative" [style.backgroundImage]="'url('+ item['photo'] +')'" >
+<section class="single-items center-block item-two parallaxie full-screen" id="creative"
+  [style.backgroundImage]="'url('+ item['photo'] +')'">
   <div class="container">
-     <div class="row">
-        <div class="col-md-5 col-sm-8 gray-bg-trans-text" >
-           <div class="item-titles darkcolor">
-              <h2 class="font-xlight wow fadeInUp" data-wow-delay="300ms">
-                 <a data-fancybox="group-two" href="assets/images/gallery-flat1.jpg"><span [innerHTML]="item['name']"></span></a>
-              </h2>
-              <p class="top25 bottom25 wow fadeInUp" data-wow-delay="350ms">{{item['description']}}</p>
-              <p>Ticket Price {{item['ticket_price']}}</p>
-           </div>
+    <div class="row">
+      <div class="col-md-5 col-sm-8 gray-bg-trans-text">
+        <div class="item-titles darkcolor">
+          <h2 class="font-xlight wow fadeInUp" data-wow-delay="300ms">
+            <a data-fancybox="group-two" href="assets/images/gallery-flat1.jpg"><span
+                [innerHTML]="item['name']"></span></a>
+          </h2>
+          <p class="top25 bottom25 wow fadeInUp" data-wow-delay="350ms">{{item['description']}}</p>
+          <p>Ticket Price {{item['ticket_price']}}</p>
         </div>
-     </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- Our Blogs -->
+<section id="our-blog" class="padding bglight">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="news_item shadow">
+          <div class="image">
+            <img [src]="item.photo" alt="Latest News" class="img-responsive">
+          </div>
+          <div class="news_desc text-start">
+            <h3 class="text-capitalize font-light darkcolor"><a href="javascript:void(0)">{{item.name}}</a></h3>
+            <ul class="meta-tags top20 bottom20">
+              <li><a href="javascript:void(0)"><i class="fa fa-calendar"></i>{{item.created_at | date: 'Y-m-d'}}</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)"><i class="fa fa-comments"></i> 2 Comments</a>
+              </li>
+            </ul>
+            <div class="bottom35">
+
+            </div>
+            <p class="heading_space">{{item.description}}</p>
+            <app-film-comments [filmId]="item.id"></app-film-comments>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <aside class="sidebar whitebox">
+
+          <div class="widget heading_space" >
+            <p class="darkcolor bottom20" *ngIf="!user">
+              Please log in to add comment
+            </p>
+            <app-film-add-comments  *ngIf="user" [filmId]="item.id"></app-film-add-comments>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Our Blogs Ends-->

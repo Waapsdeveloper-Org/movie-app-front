@@ -11,6 +11,7 @@ import { NavService } from 'src/app/services/nav.service';
 export class MovieDetailComponent implements OnInit {
 
   item: any;
+  user: any;
   constructor(private nav: NavService, private filmService: FilmsService) {
 
   }
@@ -20,6 +21,11 @@ export class MovieDetailComponent implements OnInit {
   }
 
   initialize() {
+
+    let user = localStorage.getItem('user');
+    if(user){
+      this.user = JSON.parse(user);
+    }
 
     let id = this.nav.getQueryParams()['id'];
 
@@ -38,7 +44,7 @@ export class MovieDetailComponent implements OnInit {
     this.nav.pop();
   }
 
-  
+
 
 
 }

@@ -22,7 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     LoaderModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [
     NetworkService,

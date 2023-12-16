@@ -1,0 +1,18 @@
+<div class="post-comment">
+  <h4 class="text-capitalize darkcolor">Add Comment</h4>
+  <p class="bottom40">Your Email address will not be published</p>
+  <div class="getin_form" id="post-a-comment" >
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12">
+        <div class="form-group bottom35">
+          <textarea class="form-control" [(ngModel)]="comment" [ngModelOptions]="{'standalone': true}" placeholder="Message"></textarea>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <button type="submit" class="button btnprimary" (click)="formSubmit()">submit request</button>
+      </div>
+    </div>
+  </div>
+</div>
