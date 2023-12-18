@@ -31,11 +31,11 @@
               <li><a href="javascript:void(0)"><i class="fa fa-calendar"></i>{{item.created_at | date: 'Y-m-d'}}</a>
               </li>
               <li>
-                <a href="javascript:void(0)"><i class="fa fa-comments"></i> 2 Comments</a>
+                <a href="javascript:void(0)"><i class="fa fa-comments"></i> {{item['comments'].length}} Comments</a>
               </li>
             </ul>
             <div class="bottom35">
-              <app-star-rating [disabled]="true" ></app-star-rating>
+              <app-star-rating [rating]="item['average_rating']" [disabled]="true" ></app-star-rating>
             </div>
             <p class="heading_space">{{item.description}}</p>
             <app-film-comments [filmId]="item.id"></app-film-comments>

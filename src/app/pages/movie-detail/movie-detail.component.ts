@@ -13,9 +13,13 @@ export class MovieDetailComponent implements OnInit {
 
   item: any;
   user: any;
-  constructor(private nav: NavService, private filmService: FilmsService, ) {
+  constructor(private nav: NavService, private filmService: FilmsService, private events: EventsService ) {
 
-
+    this.events.subscribe('comment:added', () => {
+      this.filmService.getFilm(this.item.id).then((res: any) => {
+        this.item = res;
+      });
+    });
   }
 
   ngOnInit() {

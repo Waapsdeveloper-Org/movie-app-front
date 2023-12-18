@@ -1,17 +1,44 @@
 
+<!--PreLoader-->
+<div class="loader" #loader [hidden]="!loading">
+  <div class="loader-inner">
+     <div class="loader-blocks">
+        <span class="block-1"></span>
+        <span class="block-2"></span>
+        <span class="block-3"></span>
+        <span class="block-4"></span>
+        <span class="block-5"></span>
+        <span class="block-6"></span>
+        <span class="block-7"></span>
+        <span class="block-8"></span>
+        <span class="block-9"></span>
+        <span class="block-10"></span>
+        <span class="block-11"></span>
+        <span class="block-12"></span>
+        <span class="block-13"></span>
+        <span class="block-14"></span>
+        <span class="block-15"></span>
+        <span class="block-16"></span>
+     </div>
+  </div>
+</div>
+<!--PreLoader Ends-->
+
 <!-- <app-top-header></app-top-header> -->
 <div class="search-div">
 
   <div class="search-box-outer">
 
     <input type="text" class="input-inner" (keydown.enter)="search()" [(ngModel)]="searchText" />
-
+    <div class="eb-search-outer" (click)="toggleSearchTYpe()">
+      <div class="eb-search-inner">
+        {{ searchType }}
+      </div>
+    </div>
     <div class="search-box-btn" (click)="search()">
       <div class="top-badge">{{list.length}}</div>
       <i class="fa fa-search"></i>
-
     </div>
-
 
   </div>
 
@@ -32,7 +59,6 @@
      </div>
   </div>
 </section>
-
 
 <section class="single-items center-block item-two parallaxie full-screen" id="creative" *ngFor="let item of list" [style.backgroundImage]="'url('+ item['photo'] +')'" (click)="openDetails(item)" >
   <div class="container">

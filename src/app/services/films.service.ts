@@ -8,10 +8,10 @@ export class FilmsService {
 
   constructor(public network: NetworkService) { }
 
-  getFilms(search = "") {
+  getFilms(search = "", type = "database") {
     return new Promise(async (resolve) => {
 
-      const res = await this.network.getFilms(search);
+      const res = await this.network.getFilms(search, type);
       console.log(res)
       if(res){
         resolve(res);
@@ -56,7 +56,7 @@ export class FilmsService {
       const res = await this.network.postFilmComments(data);
       console.log(res)
       if(res){
-        
+
         resolve(res);
       } else {
         resolve(null);

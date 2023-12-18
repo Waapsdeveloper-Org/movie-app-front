@@ -2,8 +2,8 @@
   <h4 class="text-capitalize darkcolor bottom40">Comments</h4>
   <div class="eny_profile bottom30" *ngFor="let item of list"  >
      <div class="profile_text">
-        <h6 class="darkcolor"><a href="javascript:void(0)">Jenifer Lawrence</a></h6>
-        <p class="top10">Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise.</p>
+        <h6 class="darkcolor"><a href="javascript:void(0)">{{item['user'] ? item['user']['name'] : 'Anonymous'}}</a></h6>
+        <p class="top10">{{item['comment']}}</p>
      </div>
   </div>
   <div class="eny_profile" *ngIf="list.length == 0">

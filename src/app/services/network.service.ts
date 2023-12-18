@@ -21,8 +21,8 @@ export class NetworkService {
     return this.httpPostResponse("auth/register", data, null, false, false)
   }
 
-  getFilms(search = "") {
-    let url = search ? "films?search=" + search : "films";
+  getFilms(search = "", type = "database") {
+    let url = "films?type=" + type +"&search=" + search ;
     return this.httpGetResponse(url, null, true, false);
   }
 
